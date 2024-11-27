@@ -34,9 +34,9 @@ public class FacturacionSteps {
             Utils.escrituraTexto(FacturacionPageObjects.getTxtNumeroTelefono(), dataExcel.get(0).get("Numero Telefono"));
             Utils.escrituraTexto(FacturacionPageObjects.getTxtFechaNacimiento(), dataExcel.get(0).get("Fecha Nacimiento"));
 
-            Utils.esperarElementoVisible(FacturacionPageObjects.getBtnMedotoEntrega(), Duration.ofSeconds(15));
-            Utils.esperarElementoImplicito(Duration.ofSeconds(10));
-            Utils.clickJavaScript(FacturacionPageObjects.getBtnMedotoEntrega());
+            Utils.esperarElementoInteractuable(FacturacionPageObjects.getBtnMedotoEntrega(), Duration.ofSeconds(15));
+            Utils.seleccionClick(FacturacionPageObjects.getBtnMedotoEntrega());
+
             Utils.seleccionClick(FacturacionPageObjects.getOptDepartamento());
             Utils.seleccionClick(FacturacionPageObjects.getBtnDepartamento(dataExcel.get(0).get("Departamento")));
             Utils.seleccionClick(FacturacionPageObjects.getOptMunicipio());
@@ -48,16 +48,16 @@ public class FacturacionSteps {
             Utils.escrituraTexto(FacturacionPageObjects.getTxtInfoAdicional(), dataExcel.get(0).get("Info Adicional"));
             Utils.escrituraTexto(FacturacionPageObjects.getTxtDestinatario(), dataExcel.get(0).get("Destinatario"));
 
-            //Utils.seleccionClick(FacturacionPageObjects.getBtnPagoContraEntrega());
+            Utils.esperarElementoInteractuable(FacturacionPageObjects.getBtnMetodoPago(), Duration.ofSeconds(10));
             Utils.seleccionClick(FacturacionPageObjects.getBtnMetodoPago());
             Utils.esperarElementoImplicito(Duration.ofSeconds(10));
+
             driver.switchTo().frame(Utils.localizarFramePorXpath(FacturacionPageObjects.getiFrameTarjetaCredito()));
             Utils.escrituraTexto(FacturacionPageObjects.getTxtNumeroTarjeta(), dataExcel.get(0).get("Numero Tarjeta"));
             Utils.esperarElementoImplicito(Duration.ofSeconds(10));
             Utils.seleccionClick(FacturacionPageObjects.getOptCuotas());
             Utils.seleccionClick(FacturacionPageObjects.getBtnCuota(dataExcel.get(0).get("Cuotas")));
-            Utils.esperarElementoVisible(FacturacionPageObjects.getTxtNombreTarjeta(), Duration.ofSeconds(15));
-            Utils.esperarElementoImplicito(Duration.ofSeconds(10));
+            Utils.esperarElementoInteractuable(FacturacionPageObjects.getTxtNombreTarjeta(), Duration.ofSeconds(15));
             Utils.escrituraTexto(FacturacionPageObjects.getTxtNombreTarjeta(), dataExcel.get(0).get("Nombre Tarjeta"));
             Utils.seleccionClick(FacturacionPageObjects.getOptMesVencimientoTarjets());
             Utils.esperarElementoImplicito(Duration.ofSeconds(10));

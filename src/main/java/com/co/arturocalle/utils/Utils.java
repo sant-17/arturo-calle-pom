@@ -21,6 +21,11 @@ public class Utils {
         wait.until(ExpectedConditions.visibilityOfElementLocated(elemento));
     }
 
+    public static void esperarElementoInteractuable(By elemento, Duration tiempoEsperaSegundos) {
+        WebDriverWait wait = new WebDriverWait(driver,tiempoEsperaSegundos);
+        wait.until(ExpectedConditions.elementToBeClickable(elemento));
+    }
+
     public static void esperarElementoImplicito(Duration tiempoEsperaSegundos) {
         driver.manage().timeouts().implicitlyWait(tiempoEsperaSegundos);
     }
